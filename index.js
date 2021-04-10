@@ -1,5 +1,8 @@
+if (process.env.TYPE !== 'BOT') {
+    require('dotenv').config();
+}
+
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
 const moment = require("moment-timezone");
 const client = new Discord.Client();
 
@@ -21,4 +24,4 @@ client.on("ready", () => {
         .catch(console.error);
 })
 
-client.login("ODMwMTE4Mzk5NTY0NTc4ODM2.YHCCAQ.Cr0tyNOMTzklT_JDwEa3rzIIqaQ")
+client.login(process.env.TOKEN)
