@@ -8,12 +8,12 @@ const client = new Discord.Client();
 const data = require('./config.json');
 
 client.on("ready", () => {
-    let guild = client.guilds.cache.get('822570977249853481');
-    time = moment().tz("America/New_York")
-    guild.member('830118399564578836').setNickname(`${time.format('ddd')} ${time.format('LT')}`)
+    let guild = client.guilds.cache.get(data.serverID);
+    time = moment().tz(data.timezone)
+    guild.member(data.userID).setNickname(`${time.format('ddd')} ${time.format('LT')}`)
     setInterval(() => {
         time = moment().tz("America/New_York")
-        guild.member('830118399564578836').setNickname(`${time.format('ddd')} ${time.format('LT')}`)
+        guild.member(data.userID).setNickname(`${time.format('ddd')} ${time.format('LT')}`)
     },60000)
     client.user.setPresence({ activity: 
         { 
