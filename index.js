@@ -5,6 +5,7 @@ if (process.env.TYPE !== 'BOT') {
 const Discord = require("discord.js");
 const moment = require("moment-timezone");
 const client = new Discord.Client();
+const data = require('./config.json');
 
 client.on("ready", () => {
     let guild = client.guilds.cache.get('822570977249853481');
