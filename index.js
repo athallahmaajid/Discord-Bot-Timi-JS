@@ -9,12 +9,12 @@ const data = require('./config.json');
 
 client.on("ready", () => {
     let guild = client.guilds.cache.get(data.serverID);
-    time = moment().tz(data.timezone)
-    guild.member(data.userID).setNickname(`${time.format('ddd')} ${time.format('LT')}`)
-    setInterval(() => {
-        time = moment().tz("America/New_York")
+
+    new cron.CronJob(`* * * * *`, function () {
+        time = moment().tz(data.timezone)
         guild.member(data.userID).setNickname(`${time.format('ddd')} ${time.format('LT')}`)
-    },60000)
+    }, null, true, data.timezone);
+    
     client.user.setPresence({ activity: 
         { 
             name: 'Eastern Time', 
