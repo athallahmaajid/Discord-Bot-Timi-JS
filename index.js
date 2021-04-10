@@ -5,6 +5,7 @@ if (process.env.TYPE !== 'BOT') {
 const Discord = require("discord.js");
 const moment = require("moment-timezone");
 const client = new Discord.Client();
+const cron = require('cron');
 const data = require('./config.json');
 
 client.on("ready", () => {
