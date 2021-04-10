@@ -10,7 +10,7 @@ const data = require('./config.json');
 client.on("ready", () => {
     let guild = client.guilds.cache.get(data.serverID);
 
-    new cron.CronJob(`* * * * *`, function () {
+    new cron.CronJob(`0 * * * * *`, function () {
         time = moment().tz(data.timezone)
         guild.member(data.userID).setNickname(`${time.format('ddd')} ${time.format('LT')}`)
     }, null, true, data.timezone);
